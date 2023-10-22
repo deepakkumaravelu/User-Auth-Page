@@ -8,15 +8,15 @@ const Login = () => {
     const [formData,setFormData]=useState({
         email:"",
         password:""
-            });
-            const handleSubmit=(e)=>{
-                e.preventDefault();
-        console.log(formData);
-            };
-            const handleChange=(e)=>{
-                const{name,value}=e.target;
-                setFormData({...formData,[name]:value});
-            };
+        });
+        const handleSubmit=(e)=>{
+            e.preventDefault();
+            console.log(formData);
+        };
+        const handleChange=(e)=>{
+            const{name,value}=e.target;
+            setFormData({...formData,[name]:value});
+        };
   return (
     <Container>
     <h1>Login Form</h1>
