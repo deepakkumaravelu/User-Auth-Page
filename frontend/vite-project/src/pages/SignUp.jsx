@@ -8,17 +8,22 @@ const SignUp = () => {
 name:"",
 email:"",
 password:""
-    })
-    const handleChange=()=>{
-        
-    }
+    });
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+console.log(formData);
+    };
+    const handleChange=(e)=>{
+        const{name,value}=e.target;
+        setFormData({...formData,[name]:value});
+    };
   return (
     <Container>
          <h1>Registration Form</h1>
-             <Form>
+             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text " name="name" value={formData.name} onChange={handleChange} required />
+                    <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} required />
                 </Form.Group>
 
                 <Form.Group>
@@ -28,11 +33,11 @@ password:""
 
                 <Form.Group>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password " name="password" value={formData.password} onChange={handleChange} required />
+                    <Form.Control type="password" name="password" value={formData.password} onChange={handleChange} required />
                 </Form.Group>
                 <Button variant='primary' type='submit'>Register</Button>
-                {/* <p>Already have an account</p> */}
-                {/* <Link to="/login">Login</Link> */}
+                <p>Already have an account?  <Link to="/login">Login</Link></p>
+                
              </Form>
     </Container>
   )
